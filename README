@@ -1,0 +1,19 @@
+The Lost Rodent
+=============
+
+This is a simple directory listing script that allows you to emulate the look of how the
+Mozilla project used to render pages from Gopherspace. It is designed to give the user slightly
+more control over the look of their directories and to enable directory listing on servers
+where it is disabled.
+
+Installation is very straightforward.
+
+Rename htaccess to .htaccess, then put it and index.php in the folder from which you would like
+to enable indexes. The .htaccess file links all subfolders back to index.php, allowing endless
+recursion. All paths which are not a file will be passed to The Lost Rodent. If the path is a
+directory, The Lost Rodent will return an index. If the path doesn't exist, it will return
+an Error 404 message.
+
+To add descritions to a directory, create a .note file. This file is not inherited by
+subdirectories. You can assign descriptions to files by adding a .files. Templates for each are
+included with this source code.
