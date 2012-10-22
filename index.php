@@ -1,8 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<?php
+/*
+
+The Lost Rodent
+
+This is a simple directory listing script that allows you to emulate the
+look of how the Mozilla project used to render pages from Gopherspace. It
+is designed to give the user slightly more control over the look of their
+directories and to enable directory listing on servers where it is disabled.
+
+Installation is very straightforward.
+
+Rename htaccess to .htaccess, then put it and index.php in the folder from
+which you would like to enable indexes. The .htaccess file links all subfolders
+back to index.php, allowing endless recursion. All paths which are not a file
+will be passed to The Lost Rodent. If the path is a directory, The Lost Rodent
+will return an index. If the path doesn't exist, it will return an Error 404.
+
+Edit the $rootdir variable immediately below this header to point to where
+you have installed The Lost Rodent. This is used to create image links, and it
+should not have a trailing slash. You can also change the $title variable.
+
+To add descritions to a directory, create a .note file. This file is not
+inherited by subdirectories. You can assign descriptions to files by adding
+.files. Templates for each are included with this source code.
+
+Version:   1.1
+Author:    Derrick Sobodash <derrick@sobodash.com>
+Copyright: (c) 2011, 2012 Derrick Sobodash
+Web site:  https://github.com/sobodash/lostrodent/
+License:   BSD License <http://opensource.org/licenses/bsd-license.php>
+
+*/
+
+
+/*-----------------------------------------------------------------------------
+START EDITING
+-----------------------------------------------------------------------------*/
+
+$rootdir = "http://my.website.com/pub";
+$title   = "The Lost Rodent"
+
+/*-----------------------------------------------------------------------------
+STOP EDITING
+-----------------------------------------------------------------------------*/
+
+
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-    <title>Lost Rodent<?php if($_SERVER["REQUEST_URI"]) echo " (".$_SERVER["REQUEST_URI"].")"; ?></title>
+    <title><?php echo $title; if($_SERVER["REQUEST_URI"]) echo " (".$_SERVER["REQUEST_URI"].")"; ?></title>
     <style>
     html {
       background-color: #f0f0f0;
@@ -92,14 +140,19 @@ else if(is_file(".".$path.".note")) {
 foreach($dir as $null=>$value) {
 ?>
         <tr>
-          <td align="right"><?php if(is_dir(substr($path, 1) . $value)) echo "<img src=\"/pub/img/folder.png\" height=\"16\" width=\"16\" alt=\"(DIR)\">"; else echo "<img src=\"/pub/img/file.png\" height=\"16\" width=\"16\" alt=\"(FILE)\">"; ?></td>
+          <td align="right"><?php if(is_dir(substr($path, 1) . $value)) echo "<img src=\"" . $rootdir . "/img/folder.png\" height=\"16\" width=\"16\" alt=\"(DIR)\">"; else echo "<img src=\"" . $rootdir . "/img/file.png\" height=\"16\" width=\"16\" alt=\"(FILE)\">"; ?></td>
           <td><a href="<?php echo $path . $value; ?>"><?php if($files[$value]) echo $files[$value]; else echo $value; ?></a></td>
         </tr>
 <?PHP
 }
 ?>
       </table>
-      <p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html32-blue" align="right" height="31" width="88"></a><br><i>Powered by The Lost Rodent 1.0. Released under the BSD license. &copy; 2012 Derrick Sobodash.</i></p>
+      <p>
+        <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-html32-blue" align="right" height="31" width="88"></a>
+        <i>Powered by <a href="https://github.com/sobodash/lostrodent/">The Lost Rodent</a> 1.1. Released under the <a href="http://opensource.org/licenses/bsd-license.php">BSD license</a>.
+        <br>
+        Copyright &copy; 2011, 2012 Derrick Sobodash.</i>
+      </p>
     </div>
   </body>
 </html>
