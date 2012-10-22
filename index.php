@@ -140,7 +140,7 @@ else if(is_file(".".$path.".note")) {
 foreach($dir as $null=>$value) {
 ?>
         <tr>
-          <td align="right"><?php if(is_dir(substr($path, 1) . $value)) echo "<img src=\"" . $rootdir . "/img/folder.png\" height=\"16\" width=\"16\" alt=\"(DIR)\">"; else echo "<img src=\"" . $rootdir . "/img/file.png\" height=\"16\" width=\"16\" alt=\"(FILE)\">"; ?></td>
+          <td align="right"><?php if(is_dir("../" . substr($path, 1) . $value)) echo "<img src=\"" . $rootdir . "/img/folder.png\" height=\"16\" width=\"16\" alt=\"(DIR)\">"; else echo "<img src=\"" . $rootdir . "/img/file.png\" height=\"16\" width=\"16\" alt=\"(FILE)\">"; ?></td>
           <td><a href="<?php echo $path . $value; ?>"><?php if($files[$value]) echo $files[$value]; else echo $value; ?></a></td>
         </tr>
 <?PHP
