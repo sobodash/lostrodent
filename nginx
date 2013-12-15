@@ -1,0 +1,28 @@
+# The Lost Rodent - Demo Directory
+server {
+  listen 80;
+  server_name 127.0.0.1;
+  root /var/www;
+
+  location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    include fastcgi_params;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_intercept_errors on;
+    fastcgi_ignore_client_abort off;
+    fastcgi_connect_timeout 60;
+    fastcgi_send_timeout 180;
+    fastcgi_read_timeout 180;
+    fastcgi_buffers 256 4k;
+    fastcgi_pass 127.0.0.1:9000;
+  }
+  
+  charset utf-8;
+  #include globals/h5bp.conf;
+  
+  location / {
+    try_files $uri /lostrodent/lostrodent.php;
+  }
+}
+
