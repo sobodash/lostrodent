@@ -25,7 +25,8 @@ define("LR_BASEDIR", "/var/www");
 define("LR_TITLE", "Demo Directory");
 
 // Skin
-define("LR_SKIN", "classic");
+define("LR_SKIN", "2014");
+//define("LR_SKIN", "classic");
 
 // Index headers in order of preference
 $lrIndex = array(

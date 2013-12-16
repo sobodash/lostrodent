@@ -56,6 +56,10 @@ p {
 	width: 100%;
 }
 
+p#footer {
+	font-style: oblique;
+}
+
 #valid {
 	float: right;
 }

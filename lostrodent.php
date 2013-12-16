@@ -120,13 +120,14 @@ function lrError($header, $message) {
  * Returns human-readable unit size for given file length
  */
 function lrFileSize($size) {
-	if((!$unit && $size >= 1<<30) || $unit == "GB")
-		return(number_format($size / (1<<30), 2) . $lrStrings[13]);
-	if((!$unit && $size >= 1<<20) || $unit == "MB")
-		return(number_format($size / (1<<20), 2) . $lrStrings[12]);
-	if((!$unit && $size >= 1<<10) || $unit == "KB")
-		return(number_format($size / (1<<10), 2) . $lrStrings[11]);
-	return(number_format($size) . " " . $lrStrings[10]);
+	global $lrStrings;
+	if((@!$unit && $size >= 1<<30) || @$unit == "GB")
+		return(number_format($size / (1<<30), 2) . "GB");
+	if((@!$unit && $size >= 1<<20) || @$unit == "MB")
+		return(number_format($size / (1<<20), 2) . "MB");
+	if((@!$unit && $size >= 1<<10) || @$unit == "KB")
+		return(number_format($size / (1<<10), 2) . "KB");
+	return(number_format($size) . " bytes");
 }
 
 

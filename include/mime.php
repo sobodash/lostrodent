@@ -339,7 +339,10 @@ function lrGetMime($filename) {
 		return($mime_types[$ext]);
 	elseif (lrCheckText($filename)) {
 		global $finfo;
-		return($finfo->file($filename));
+		$temp = $finfo->file($filename);
+		if(strpos($temp, ";"))
+			$temp = substr($temp, 0, strpos($temp, ";"));
+		return($temp);
 	}
 	else
 		return("application/octet-stream");

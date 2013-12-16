@@ -49,7 +49,8 @@ function lrDirArray($dir) {
 			"name" => ((@$files[$value]) ? $files[$value] : $value),
 			"size" => filesize($path . $value),
 			"mime" => lrGetMime($path . $value),
-			"syntax" => lrGetSyntax($path . $value));
+			"syntax" => lrGetSyntax($path . $value),
+			"modified" => date("Y/m/d @ H:i:s", filemtime(LR_BASEDIR . LR_PATH . $value)));
 
 		// Add the view command to relevant files
 		if(!strpos($temp["mime"], "mswinurl") && ($temp["syntax"] || (strpos($temp["mime"], "text")))) {
