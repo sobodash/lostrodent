@@ -5,7 +5,7 @@ directory indexers. It supports templates, and can be used to enable
 indexing of directories on Apache or Nginx installations that explicitly
 disable it.
 
-Created as a spinoff of NotSoFancy, an earlier indexing project in 2004,
+Created as a spin off of NotSoFancy, an earlier indexing project in 2004,
 The Lost Rodent in its classic mode attempts to emulate the look and feel
 of how the Mozilla project used to render Gopherspace.
 
@@ -15,6 +15,8 @@ of how the Mozilla project used to render Gopherspace.
 * Syntax highlighting of source code with the Prism library
 * Support for displaying documents in plain text and Markdown using the
   Parsedown library
+* Retrieves EXIF information from JPEG files on view
+* Somewhat more responsive theme for 2014 with icons from the Faenza project
 * Selectively substitute file names with text descriptors
 * Automatically parse .URL files into hyperlinks
 * i18n ready (see /lang/)
