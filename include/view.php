@@ -30,16 +30,16 @@ else if(in_array($ext, array("jpg", "jpe", "jpeg"))) {
 	list($width, $height, $type, $attr) = getimagesize($filename);
 	$header = "\t\t\t<p><img src=\"" . LR_BASEURL . LR_FILE . "\" alt=\"" . array_pop(explode("/", LR_FILE)) . "\"" . (($width > 760) ? "width=\"100%\"" : "") . "></p>\n";
 	$exif = lrGetCamera($filename);
-	$header .= "\t\t\t<h2>${lrStrings[41]}</h2>\n";
-	$header .= "\t\t\t<table style=\"padding-bottom: 2em;\">\n";
+	$header .= "\t\t\t<h2 class=\"photo\">${lrStrings[41]}</h2>\n";
+	$header .= "\t\t\t<table class=\"photo\">\n";
 	$header .= "\t\t\t\t<tr>\n";
-	$header .= "\t\t\t\t\t<td style=\"padding-right: 1em\"><strong>${lrStrings[42]}:</strong></td><td style=\"padding-right: 4em\">${exif['make']}</td><td style=\"padding-right: 1em\"><strong>${lrStrings[43]}:</strong></td><td>${exif['model']}</td>\n";
+	$header .= "\t\t\t\t\t<td><strong>${lrStrings[42]}:</strong></td><td class=\"spacer\">${exif['make']}</td><td><strong>${lrStrings[43]}:</strong></td><td>${exif['model']}</td>\n";
 	$header .= "\t\t\t\t</tr>\n";
 	$header .= "\t\t\t\t<tr>\n";
-	$header .= "\t\t\t\t\t<td style=\"padding-right: 1em\"><strong>${lrStrings[44]}:</strong></td><td style=\"padding-right: 4em\">${exif['exposure']}</td><td style=\"padding-right: 1em\"><strong>${lrStrings[45]}:</strong></td><td>${exif['aperture']}</td>\n";
+	$header .= "\t\t\t\t\t<td><strong>${lrStrings[44]}:</strong></td><td class=\"spacer\">${exif['exposure']}</td><td><strong>${lrStrings[45]}:</strong></td><td>${exif['aperture']}</td>\n";
 	$header .= "\t\t\t\t</tr>\n";
 	$header .= "\t\t\t\t<tr>\n";
-	$header .= "\t\t\t\t\t<td style=\"padding-right: 1em\"><strong>${lrStrings[46]}:</strong></td><td style=\"padding-right: 4em\">${exif['iso']}</td><td style=\"padding-right: 1em\"><strong>${lrStrings[47]}:</strong></td><td>${exif['date']}</td>\n";
+	$header .= "\t\t\t\t\t<td><strong>${lrStrings[46]}:</strong></td><td class=\"spacer\">${exif['iso']}</td><td><strong>${lrStrings[47]}:</strong></td><td>${exif['date']}</td>\n";
 	$header .= "\t\t\t\t</tr>\n";
 	$header .= "\t\t\t</table>\n";
 }
