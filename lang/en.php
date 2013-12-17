@@ -33,6 +33,14 @@ $lrStrings = array(
 	30 => "Powered by ",
 	31 => "Released under the ",
 	32 => "BSD license",
+	40 => "Not found",
+	41 => "Photo Information",
+	42 => "Make", /* Camera Make */
+	43 => "Model", /* Camera Model */
+	44 => "Shutter Speed",
+	45 => "Aperture",
+	46 => "ISO Speed",
+	47 => "Date Taken"
 );
 
 ?>
