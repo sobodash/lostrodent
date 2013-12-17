@@ -53,7 +53,7 @@ function lrDirArray($dir) {
 			"modified" => date("Y/m/d @ H:i:s", filemtime(LR_BASEDIR . LR_PATH . $value)));
 
 		// Add the view command to relevant files
-		if(!strpos($temp["mime"], "mswinurl") && ($temp["syntax"] || (strpos($temp["mime"], "text")))) {
+		if(!strpos($temp["mime"], "mswinurl") && ($temp["syntax"] || (strpos($temp["mime"], "text"))) || in_array(lrFileExt($value), array("jpg", "jpe", "jpeg", "png", "gif"))) {
 			$temp["raw"] = $temp["url"];
 			$temp["url"] .= "/view";
 		}

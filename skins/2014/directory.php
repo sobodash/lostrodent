@@ -62,7 +62,7 @@ foreach($table as $null=>$value) {
 
 				<tr>
 					<td rowspan="2" align="right"><img src="<?php echo is_dir($value["path"]) ? LR_SYSURL . "/img/48px/folder" : LR_SYSURL . "/img/48px/" . str_replace("/", "-", $value["mime"]); ?>.png" alt="<?php echo is_dir($value["path"]) ? "[dir]" : " "; ?>" class="icon"></td>
-					<td colspan="3" class="filename"><a href="<?php echo $value["url"]; ?>"><?php echo $value["name"]; ?></a><?php if($value["syntax"] || strpos($value["mime"], "text")) { ?><?php if($value["raw"]) {?> <a href="<?php echo $value["raw"]; ?>"><img src="<?php echo LR_SYSURL . "/img/16px/document-save.png"; ?>" width="16" height="16" alt="[raw]"></a><?php }} ?></td>
+					<td colspan="3" class="filename"><a href="<?php echo $value["url"]; ?>"><?php echo $value["name"]; ?></a><?php if($value["raw"] != null) {?> <a href="<?php echo $value["raw"]; ?>"><img src="<?php echo LR_SYSURL . "/img/16px/document-save.png"; ?>" width="16" height="16" alt="[raw]"></a><?php } ?></td>
 				</tr>
 				<tr>
 					<td class="infomime"><?php echo is_dir($value["path"]) ? "Directory" : "MIME: " .$value["mime"]; ?></td>

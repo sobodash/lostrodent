@@ -40,8 +40,8 @@ else if(@$header) {
 foreach($table as $null=>$value) {
 ?>
 				<tr>
-					<td align="right"><img src="<?php echo LR_SYSURL . "/skins/" . LR_SKIN . "/img/"; echo is_dir($value["path"]) ? "folder" : "file"; ?>.png"></td>
-					<td><a href="<?php echo $value["url"]; ?>"><?php echo $value["name"]; ?></a><?php if($value["syntax"] || strpos($value["mime"], "text")) { ?><?php if($value["raw"]) {?> <a href="<?php echo $value["raw"]; ?>">[<?php echo strtolower($lrStrings[22]); ?>]</a><?php }} ?></td>
+					<td align="right"><img src="<?php echo LR_SYSURL . "/skins/" . LR_SKIN . "/img/"; echo is_dir($value["path"]) ? "folder" : "file"; ?>.png" alt="<?php echo is_dir($value["path"]) ? "[folder]" : "[file]"; ?>"></td>
+					<td><a href="<?php echo $value["url"]; ?>"><?php echo $value["name"]; ?></a><?php if($value["raw"] != null) {?> <a href="<?php echo $value["raw"]; ?>">[<?php echo strtolower($lrStrings[22]); ?>]</a><?php } ?></td>
 				</tr><?php
 }
 ?>

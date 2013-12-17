@@ -15,6 +15,10 @@ div#wrapper {
 	font-size: 9pt;
 }
 
+div#social {
+	float: right;
+}
+
 div.fileinfo {
         -moz-border-radius: 1em;
         -webkit-border-radius: 1em;
@@ -116,6 +120,10 @@ img {
 	}
 	td.filename {
 		font-size: 12pt;
+	}
+	div#social {
+		text-align: center;
+		float: none;
 	}
 }
 
